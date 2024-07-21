@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+service FileService {
+    rpc UploadFile (UploadRequest) returns (UploadResponse);
+    rpc GetFiles (RetrieveRequest) returns (RetrieveResponse);
+}
+
+message UploadRequest {
+    string user_name = 1;
+    string file_name = 2;
+    string file_path = 3;
+}
+
+message UploadResponse {
+    string status = 1;
+    string message = 2;
+}
+
+message RetrieveRequest {
+    string user_name = 1;
+}
+
+message FileRecord {
+    string file_name = 1;
+    string file_path = 2;
+}
+
+message RetrieveResponse {
+    repeated FileRecord files = 1;
+}
