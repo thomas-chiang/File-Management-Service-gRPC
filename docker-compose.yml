@@ -1,10 +1,13 @@
 services:
   api_gateway:
     build: ./api_gateway
+    command: ["fastapi", "dev", "main.py", "--host", "0.0.0.0", "--port", "8000"]
     ports:
-      - "8000:80"
+      - "8000:8000"
     depends_on:
       - grpc_service
+    volumes:
+      - ./api_gateway:/app
 
   grpc_service:
     build: ./grpc_service
@@ -24,5 +27,4 @@ services:
     ports:
       - "5432:5432"
 
-volumes:
-  postgres_data:
+
