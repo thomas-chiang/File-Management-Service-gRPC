@@ -1,4 +1,4 @@
-CREATE TABLE files (
+CREATE TABLE file (
     id SERIAL PRIMARY KEY,
     user_name VARCHAR(255) NOT NULL,
     file_name VARCHAR(255) NOT NULL,

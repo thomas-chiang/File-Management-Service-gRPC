@@ -5,12 +5,12 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - grpc_service
+      - file_service
     volumes:
       - ./api_gateway/app:/app
 
-  grpc_service:
-    build: ./grpc_service
+  file_service:
+    build: ./file_service
     ports:
       - "50051:50051"
     depends_on:
