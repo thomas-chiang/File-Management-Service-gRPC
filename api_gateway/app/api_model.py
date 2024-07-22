@@ -1,4 +1,6 @@
 from pydantic import BaseModel
+from typing import Literal
+
 
 class UploadFileRequest(BaseModel):
     user_name: str
@@ -10,5 +12,5 @@ class FileResponse(BaseModel):
     path: str
 
 class UploadFileResponse(BaseModel):
-    status: str
+    status: Literal['success', 'fail']
     message: str
