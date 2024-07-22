@@ -7,7 +7,7 @@ services:
     depends_on:
       - grpc_service
     volumes:
-      - ./api_gateway:/app
+      - ./api_gateway/app:/app
 
   grpc_service:
     build: ./grpc_service
