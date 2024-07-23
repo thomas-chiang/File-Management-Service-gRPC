@@ -71,6 +71,10 @@ The goal of this assignment is to implement a file management service using both
 docker-compose up --build
 ```
 
+## GUI to operate these APIs
+http://127.0.0.1:8000/docs
+
+
 ## Test
 ```
 make install-deps
