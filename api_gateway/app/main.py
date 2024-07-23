@@ -8,7 +8,7 @@ from api_model import UploadFileResponse, UploadFileRequest, FileResponse
 app = FastAPI()
 
 # Connect to gRPC server
-channel = grpc.insecure_channel('grpc_service:50051')
+channel = grpc.insecure_channel('file_service:50051')
 stub = FileServiceStub(channel)
 
 @app.post("/api/files", response_model=UploadFileResponse)
