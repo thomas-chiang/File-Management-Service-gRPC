@@ -18,9 +18,13 @@ class FileService(file_service_pb2_grpc.FileServiceServicer):
         )
 
     def GetFiles(self, request, context):
-        records = self.persistent_adapter.get_file_records_from_db(
-            user_name=request.user_name
-        )
+        records = []
+        if request.user_name:
+            records = self.persistent_adapter.get_file_records_from_db(
+                user_name=request.user_name
+            )
+        else:
+            records = self.persistent_adapter.get_all_file_records_from_db()
         files = [
             FileRecord(file_name=rec.file_name, file_path=rec.file_path)
             for rec in records

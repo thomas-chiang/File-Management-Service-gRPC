@@ -20,3 +20,8 @@ class PersistentAdapter:
         with Session(self.engine) as session:
             statement = select(File).where(File.user_name == user_name)
             return session.exec(statement).all()
+        
+    def get_all_file_records_from_db(self):
+        with Session(self.engine) as session:
+            statement = select(File)
+            return session.exec(statement).all()

@@ -23,7 +23,7 @@ def test_upload_file_success():
     response = client.post("/api/files", json=payload)
 
     # Assert
-    assert response.status_code == 200
+    assert response.status_code == 201
     assert response.json() == {"status": "success", "message": "File uploaded successfully"}
 
 def test_upload_file_failure():
