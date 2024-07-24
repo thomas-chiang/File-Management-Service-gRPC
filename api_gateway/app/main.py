@@ -5,11 +5,15 @@ from file_service_proto.file_service_pb2_grpc import FileServiceStub
 from api_model import UploadFileResponse, UploadFileRequest, FileResponse
 from fastapi.responses import JSONResponse
 from typing import Optional
+import os
 
 app = FastAPI()
 
 # Connect to gRPC server
-channel = grpc.insecure_channel('file_service:50051')
+if os.getenv("FILE_SERVICE_HOST") == "file_service":
+    channel = grpc.insecure_channel(f'{os.getenv("FILE_SERVICE_HOST")}:50051')
+else:
+    channel = grpc.secure_channel(f'{os.getenv("FILE_SERVICE_HOST")}:443', grpc.ssl_channel_credentials())
 stub = FileServiceStub(channel)
 
 @app.post("/api/files", response_model=UploadFileResponse)

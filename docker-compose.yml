@@ -8,6 +8,8 @@ services:
       - file_service
     volumes:
       - ./api_gateway/app:/app
+    environment:
+      FILE_SERVICE_HOST: file_service
 
   file_service:
     build: ./file_service

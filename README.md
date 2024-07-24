@@ -73,7 +73,7 @@ docker-compose up --build
 
 ## GUI to operate these APIs
 http://127.0.0.1:8000/docs
-
+https://api-gateway-av6v7gaioq-de.a.run.app/docs
 
 ## Test
 ```
